@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="310" font-family="'SF Mono', 'Menlo', 'Monaco', 'Courier New', monospace" font-size="14">
+  <defs>
+    <style>
+      .bg { fill: #1e1e2e; }
+      .title-bar { fill: #313244; }
+      .title-text { fill: #cdd6f4; font-size: 13px; }
+      .dot-red { fill: #f38ba8; }
+      .dot-yellow { fill: #f9e2af; }
+      .dot-green { fill: #a6e3a1; }
+      .cyan { fill: #89dceb; }
+      .green { fill: #a6e3a1; }
+      .yellow { fill: #f9e2af; }
+      .orange { fill: #fab387; }
+      .red { fill: #f38ba8; }
+      .bold-red { fill: #f38ba8; font-weight: bold; }
+      .text { fill: #cdd6f4; }
+      .dim { fill: #6c7086; }
+      .bar-empty { fill: #45475a; }
+      .label { fill: #9399b2; font-size: 11px; }
+    </style>
+  </defs>
+
+  <!-- Window frame -->
+  <rect class="bg" width="760" height="310" rx="10" ry="10"/>
+  <rect class="title-bar" width="760" height="36" rx="10" ry="10"/>
+  <rect class="bg" y="26" width="760" height="10"/>
+
+  <!-- Window dots -->
+  <circle class="dot-red" cx="20" cy="18" r="6"/>
+  <circle class="dot-yellow" cx="40" cy="18" r="6"/>
+  <circle class="dot-green" cx="60" cy="18" r="6"/>
+  <text class="title-text" x="380" y="22" text-anchor="middle">claude-statusline</text>
+
+  <!-- === Example 1: 55% (yellow) === -->
+  <text class="label" x="20" y="65">55% context — yellow zone</text>
+
+  <!-- Line 1 -->
+  <text y="90" x="20">
+    <tspan class="cyan">[Opus]</tspan>
+    <tspan class="text"> 📁 my-project | 🌿 main | </tspan>
+    <tspan class="green">+42</tspan>
+    <tspan class="text"> </tspan>
+    <tspan class="red">-15</tspan>
+  </text>
+
+  <!-- Line 2: progress bar at 55% (effective ~61%) = 12/20 filled -->
+  <text y="115" x="20">
+    <tspan class="yellow">████████████</tspan><tspan class="dim">░░░░░░░░</tspan>
+    <tspan class="text"> 55%/90% (200k)</tspan>
+  </text>
+
+  <!-- Divider -->
+  <line x1="20" y1="135" x2="740" y2="135" stroke="#45475a" stroke-width="1"/>
+
+  <!-- === Example 2: 75% (red + warning) === -->
+  <text class="label" x="20" y="160">75% context — orange zone</text>
+
+  <!-- Line 1 -->
+  <text y="185" x="20">
+    <tspan class="cyan">[Opus]</tspan>
+    <tspan class="text"> 📁 my-project | 🌿 main | </tspan>
+    <tspan class="green">+128</tspan>
+    <tspan class="text"> </tspan>
+    <tspan class="red">-34</tspan>
+  </text>
+
+  <!-- Line 2: progress bar at 75% (effective ~83%) = 16/20 filled -->
+  <text y="210" x="20">
+    <tspan class="orange">████████████████</tspan><tspan class="dim">░░░░</tspan>
+    <tspan class="text"> 75%/90% (200k) </tspan>
+    <tspan class="orange">← compress recommended</tspan>
+  </text>
+
+  <!-- Divider -->
+  <line x1="20" y1="230" x2="740" y2="230" stroke="#45475a" stroke-width="1"/>
+
+  <!-- === Example 3: 92% (blinking red + COMPRESS NOW) === -->
+  <text class="label" x="20" y="255">92% context — critical zone</text>
+
+  <!-- Line 1 -->
+  <text y="280" x="20">
+    <tspan class="cyan">[Opus]</tspan>
+    <tspan class="text"> 📁 my-project | 🌿 main | </tspan>
+    <tspan class="green">+256</tspan>
+    <tspan class="text"> </tspan>
+    <tspan class="red">-89</tspan>
+  </text>
+
+  <!-- Line 2: progress bar at 92% (effective 100%) = 20/20 filled, ▓ texture -->
+  <text y="305" x="20">
+    <tspan class="bold-red">▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓</tspan>
+    <tspan class="text"> 92%/90% (200k) </tspan>
+    <tspan class="bold-red">⚠ COMPRESS NOW</tspan>
+  </text>
+</svg>
